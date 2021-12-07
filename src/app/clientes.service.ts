@@ -15,10 +15,7 @@ export class ClientesService {
     return this.http.post<any>('http://localhost:8080/api/clientes', cliente);
   }
 
-  getClientes(): ClienteDTORequest[] {
-    let cliente = new ClienteDTORequest();
-    cliente.nome = 'Fulano';
-    cliente.documento = '00011122233';
-    return [cliente];
+  getClientes(): Observable<ClienteDTORequest[]> {
+    return this.http.get<ClienteDTORequest[]>('http://localhost:8080/api/clientes');
   }
 }
