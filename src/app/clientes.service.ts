@@ -15,10 +15,10 @@ export class ClientesService {
     return this.http.post<any>('http://localhost:8080/api/clientes', cliente);
   }
 
-  getCliente(): ClienteDTORequest {
-    let cliente: ClienteDTORequest = new ClienteDTORequest();
-    cliente.nome = 'Fulando';
-    cliente.documento = '55555555555';
-    return cliente;
+  getClientes(): ClienteDTORequest[] {
+    let cliente = new ClienteDTORequest();
+    cliente.nome = 'Fulano';
+    cliente.documento = '00011122233';
+    return [cliente];
   }
 }
