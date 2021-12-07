@@ -1,5 +1,6 @@
 import { ClientesService } from './../../clientes.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { ClienteDTORequest } from '../clienteDTORequest';
 
@@ -14,7 +15,9 @@ export class ClientesFormComponent implements OnInit {
   success: boolean = false;
   errors: String[];
 
-  constructor( private service: ClientesService ) {
+  constructor(
+    private service: ClientesService,
+    private router: Router ) {
     this.cliente = new ClienteDTORequest();
   }
 
@@ -33,4 +36,7 @@ export class ClientesFormComponent implements OnInit {
       });
   }
 
+  voltarParaListagem() {
+    this.router.navigate(['/clientes-lista'])
+  }
 }
