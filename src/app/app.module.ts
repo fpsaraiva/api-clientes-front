@@ -1,3 +1,4 @@
+import { ClientesService } from './clientes.service';
 import { ClientesModule } from './clientes/clientes.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -19,7 +20,9 @@ import { HomeComponent } from './home/home.component'
     TemplateModule,
     ClientesModule
   ],
-  providers: [],
+  providers: [
+    ClientesService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
