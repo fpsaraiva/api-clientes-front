@@ -11,6 +11,8 @@ import { ClienteDTORequest } from '../clienteDTORequest';
 export class ClientesFormComponent implements OnInit {
 
   cliente: ClienteDTORequest;
+  success: boolean = false;
+  errors: String[];
 
   constructor( private service: ClientesService ) {
     this.cliente = new ClienteDTORequest();
@@ -23,8 +25,7 @@ export class ClientesFormComponent implements OnInit {
     this.service
       .salvar(this.cliente)
       .subscribe(response => {
-        console.log(response);
-
+        this.success = true;
       });
   }
 
