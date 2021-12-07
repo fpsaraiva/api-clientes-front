@@ -9,20 +9,55 @@
       <div class="col-md-6">
         <div class="form-group">
           <label>Nome (obrigatório):</label>
-          <input type="text" class="form-control">
+          <input type="text" class="form-control" [(ngModel)]="cliente.nome" name="nome">
         </div>
       </div>
       <div class="col-md-6">
         <div class="form-group">
           <label>Documento (obrigatório):</label>
-          <input type="text" class="form-control">
+          <input type="text" class="form-control" [(ngModel)]="cliente.documento" name="documento">
         </div>
       </div>
     </div>
 
     <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>Endereço completo (obrigatório):</label>
+          <input type="text" class="form-control" disabled>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>Cidade (obrigatório):</label>
+          <input type="text" class="form-control" disabled>
+        </div>
+      </div>
+    </div >
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>Número do telefone:</label>
+          <input type="tel" class="form-control" disabled>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="telefones">Tipo de telefone: </label>
+          <select name="telefones" id="telefones" d>
+            <option disabled>Selecione</option>
+            <option disabled value="CELULAR">Celular</option>
+            <option disabled value="RESIDENCIAL">Residencial</option>
+            <option disabled value="COMERCIAL">Comercial</option>
+          </select>
+        </div>
+      </div>
+    </div >
+
+    <div class="row">
       <div class="col-md-2">
-        <button type="submit" class="btn btn-success">
+        <button type="submit" class="btn btn-success" (click)="clicar()">
           <i class="fa fa-save"></i> Salvar
         </button>
       </div>
