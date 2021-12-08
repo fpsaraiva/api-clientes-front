@@ -16,6 +16,7 @@
       <table class="table table-condensed table-hover">
         <thead>
           <tr>
+            <th>ID</th>
             <th>Nome</th>
             <th>Documento</th>
             <th></th>
@@ -23,9 +24,14 @@
         </thead>
         <tbody>
           <tr *ngFor="let cliente of clientes">
+            <td>{{ cliente.id }}</td>
             <td>{{ cliente.nome }}</td>
             <td>{{ cliente.documento }}</td>
-            <td></td>
+            <td>
+              <button class="btn btn-primary">
+                <i class="fa fa-edit"></i>
+              </button>
+            </td>
           </tr>
         </tbody>
       </table>

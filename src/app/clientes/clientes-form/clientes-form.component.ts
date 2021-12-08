@@ -1,6 +1,7 @@
+import { Observable } from 'rxjs';
 import { ClientesService } from './../../clientes.service';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { ClienteDTORequest } from '../clienteDTORequest';
 
@@ -14,14 +15,24 @@ export class ClientesFormComponent implements OnInit {
   cliente: ClienteDTORequest;
   success: boolean = false;
   errors: String[];
+  id: number;
 
   constructor(
     private service: ClientesService,
-    private router: Router ) {
+    private router: Router,
+    private activatedRoute: ActivatedRoute ) {
     this.cliente = new ClienteDTORequest();
   }
 
   ngOnInit(): void {
+    this.activatedRoute.params.subscribe(x => {
+      if (x && x.id) {
+          this.service.getClienteById(x.id).subscribe(response => {
+              this.cliente = response;
+          });
+      }
+  });
+
   }
 
   onSubmit() {

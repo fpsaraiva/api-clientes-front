@@ -18,4 +18,8 @@ export class ClientesService {
   getClientes(): Observable<ClienteDTORequest[]> {
     return this.http.get<ClienteDTORequest[]>('http://localhost:8080/api/clientes?size=50');
   }
+
+  getClienteById(id: number): Observable<ClienteDTORequest> {
+    return this.http.get<any>(`http://localhost:8080/api/clientes/${id}`);
+  }
 }
