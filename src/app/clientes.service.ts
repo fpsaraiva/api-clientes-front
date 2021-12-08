@@ -22,4 +22,8 @@ export class ClientesService {
   getClienteById(id: number): Observable<ClienteDTORequest> {
     return this.http.get<any>(`http://localhost:8080/api/clientes/${id}`);
   }
+
+  atualizar(  cliente: ClienteDTORequest ): Observable<ClienteDTORequest> {
+    return this.http.patch<ClienteDTORequest>(`http://localhost:8080/api/clientes/${cliente.id}`, cliente);
+  }
 }
