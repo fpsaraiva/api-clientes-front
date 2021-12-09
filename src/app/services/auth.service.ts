@@ -32,6 +32,19 @@ export class AuthService {
     return null;
   }
 
+  deslogarDaSessao() {
+    localStorage.removeItem('access_token');
+  }
+
+  getUsuarioAutenticado() {
+    const token = this.obterToken();
+    if(token) {
+      const user = this.jwtHelper.decodeToken(token).user_name
+      return user;
+    }
+    return null;
+  }
+
   isAuthenticated(): boolean {
     const token = this.obterToken();
 
