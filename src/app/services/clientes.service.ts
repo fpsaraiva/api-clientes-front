@@ -16,7 +16,12 @@ export class ClientesService {
   }
 
   getClientes(): Observable<ClienteDTORequest[]> {
-    return this.http.get<ClienteDTORequest[]>('http://localhost:8080/api/clientes?size=50');
+    const tokenString = localStorage.getItem('access_token') as string;
+    const token = JSON.parse(tokenString)
+    const headers = {
+      'Authorization': 'Bearer ' + token.access_token
+    }
+    return this.http.get<ClienteDTORequest[]>('http://localhost:8080/api/clientes?size=50', {headers});
   }
 
   getClienteById(id: number): Observable<ClienteDTORequest> {
