@@ -1,5 +1,5 @@
 import { Observable } from 'rxjs';
-import { ClientesService } from './../../clientes.service';
+import { ClientesService } from '../../services/clientes.service';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 

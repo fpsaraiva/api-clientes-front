@@ -1,4 +1,4 @@
-import { AuthService } from './../auth.service';
+import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 import { Component } from '@angular/core';
 import { Usuario } from './usuario';
@@ -22,6 +22,16 @@ export class LoginComponent {
   ) {  }
 
   onSubmit() {
+    this.authService
+        .tentarLogar(this.username, this.password)
+        .subscribe(response => {
+          console.log(response);
+
+          this.router.navigate(['/home'])
+        }, errorResponse => {
+          this.errors = ['Usuário e/ou senha incorreto(s).']
+        })
+
     this.router.navigate(['/home']);
   }
 

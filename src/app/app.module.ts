@@ -1,5 +1,5 @@
-import { AuthService } from './auth.service';
-import { ClientesService } from './clientes.service';
+import { AuthService } from '../app/services/auth.service';
+import { ClientesService } from './services/clientes.service';
 import { ClientesModule } from './clientes/clientes.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
