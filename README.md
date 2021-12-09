@@ -32,6 +32,7 @@ Obs: para que o projeto funcione, é necessário que o [backend da aplicação](
 
 ## Bugs encontrados
 
+* Fechar o modal de deletar cliente após o registro ser removido.
 * Revisar a geração de tokens para usuários diferentes que utilizam o mesmo navegador.
 
 ## Melhorias futuras
